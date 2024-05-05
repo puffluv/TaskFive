@@ -24,7 +24,7 @@ namespace TaskFive
             };
             nextId++;
 
-            SendMessage(user.Name + " присоединился к чату. Добро пожаловать!", 0);
+            SendMessage(" " + user.Name + " присоединился к чату. Добро пожаловать!", 0);
             users.Add(user);
             return user.Id;
 
@@ -36,7 +36,7 @@ namespace TaskFive
             if (user != null)
             {
                 users.Remove(user);
-                SendMessage($"Нас покинул {user.Name}. Пока-пока!", 0);
+                SendMessage($" Нас покинул {user.Name}. Пока-пока!", 0);
             }
         }
 
@@ -48,7 +48,7 @@ namespace TaskFive
                 var user = users.FirstOrDefault(i => i.Id == id);
                 if (user != null)
                 {
-                    answer += ": " + user.Name + " ";
+                    answer += " - " + user.Name + ": ";
                 }
 
                 answer += message;
