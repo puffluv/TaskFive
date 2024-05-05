@@ -8,10 +8,22 @@ using System.Text;
 namespace TaskFive
 {
     // ПРИМЕЧАНИЕ. Команду "Переименовать" в меню "Рефакторинг" можно использовать для одновременного изменения имени класса "Service1" в коде и файле конфигурации.
-    public class Service1 : IService1
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
+    public class ServiceChat : IServiceChat
     {
-        public void DoWork()
+        public int Connect()
         {
+            throw new NotImplementedException();
+        }
+
+        public void Disconnect(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SendMessage(string message)
+        {
+            throw new NotImplementedException();
         }
     }
 }
