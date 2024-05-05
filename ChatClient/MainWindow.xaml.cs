@@ -88,16 +88,71 @@ namespace ChatClient
             {
                 if (client != null)
                 {
-                    client.SendMessage(tbMessage.Text, id);
-                    tbMessage.Text = string.Empty;
+                    if (IsMessageValid())
+                    {
+                        sndMsg();
+                    }
                 }
             }
         }
 
         private void bSend_Click(object sender, RoutedEventArgs e)
         {
+            if (IsMessageValid())
+            {
+                sndMsg();
+            }
+        }
+        private void sndMsg()
+        {
             client.SendMessage(tbMessage.Text, id);
             tbMessage.Text = string.Empty;
         }
+        private bool IsMessageValid()
+        {
+            return !string.IsNullOrWhiteSpace(tbMessage.Text) && tbMessage.Text != "Введите текст";
+        }
+        private void tbMessage_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (tbMessage.Text == "Введите текст")
+            {
+                tbMessage.Text = "";
+                tbMessage.Foreground = Brushes.White;
+            }
+        }
+
+        private void tbMessage_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (tbMessage.Text == "Введите текст")
+            {
+                // Если поле ввода содержит текст "Введите текст", просто вернем его
+                return;
+            }
+
+            // В противном случае, если поле ввода пустое, восстановим текст "Введите текст"
+            if (string.IsNullOrWhiteSpace(tbMessage.Text))
+            {
+                tbMessage.Text = "Введите текст";
+                tbMessage.Foreground = Brushes.LightGray;
+            }
+        }
+        private void tbUserName_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (tbUserName.Text == "Nickname")
+            {
+                tbUserName.Text = "";
+                tbUserName.Foreground = Brushes.White;
+            }
+        }
+
+        private void tbUserName_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbUserName.Text))
+            {
+                tbUserName.Text = "Nickname";
+                tbUserName.Foreground = Brushes.LightGray;
+            }
+        }
+
     }
 }

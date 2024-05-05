@@ -48,7 +48,7 @@ namespace TaskFive
                 var user = users.FirstOrDefault(i => i.Id == id);
                 if (user != null)
                 {
-                    answer += ": " + user.Name + " ";
+                    answer += " - " + user.Name + ": ";
                 }
 
                 answer += message;

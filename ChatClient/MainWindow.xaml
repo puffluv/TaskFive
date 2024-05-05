@@ -93,6 +93,7 @@
             </Setter>
         </Style>
 
+
         <Style x:Key="DataGrid" TargetType="DataGrid">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Grid.Row" Value="0"/>
@@ -133,9 +134,10 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBox Grid.Row="0" Grid.Column="0"  FontSize="28" Background="Transparent" Width="100" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="tbUserName"/>
+        <TextBox Grid.Column="0" BorderBrush="LightGray" FontSize="20" Background="Transparent" Width="140" Text="Nickname" Foreground="White" GotFocus="tbUserName_GotFocus" LostFocus="tbUserName_LostFocus" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="tbUserName"/>
         <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="Присоединитесь к чату" FontSize="28" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="Welcome"/>
-        <TextBox x:Name="tbMessage" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" IsEnabled="False" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="314" Height="44" />
+        <TextBox x:Name="tbMessage" Grid.Row="4" BorderThickness="0.2"  BorderBrush="LightGray" FontSize="17" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" IsEnabled="False" TextWrapping="Wrap" VerticalAlignment="Center" Width="314" Height="44"  
+         Text="Введите текст" Foreground="White" GotFocus="tbMessage_GotFocus" LostFocus="tbMessage_LostFocus" Background="Transparent" KeyDown="tbMessage_KeyDown" />
         <Button x:Name="bConnDiscon" Grid.Row="1" Style="{StaticResource ResultButton}" FontSize="20"  Content="Connect"  HorizontalAlignment="Center" VerticalAlignment="Top" Width="140" Height="42" Click="Button_Click"/>
         <Button x:Name="bSend" Grid.Row="4" Style="{StaticResource ResultButton}" FontSize="20"  Content="Send"  IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Center" Width="140" Height="42" Click="bSend_Click"/>
         <ListBox x:Name="lbChat" Foreground="White" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="3" Background="Transparent">
